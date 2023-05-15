@@ -25,10 +25,10 @@ class conection
     {
 
         try {
-            $this->conection= new PDO("mysql:host=" . $this->server . ";dbname=".$this->dbname, $this->user, $this->password);
+            $this->conection= new PDO("mysql:host=" . $this->server . ";dbname=	sql10618119", $this->user, $this->password);
             $this->conection->setAttribute(PDO::ATTR_ERRMODE, PDO::ERRMODE_EXCEPTION);
         } catch (PDOException $e) {
-            echo 'error' . $e;
+            echo 'error' . $e."UNA LOCURA...";
         }
     }
     public function execut($I)//Insertar/actualizar/Eliminar
@@ -36,7 +36,7 @@ class conection
         $this->conection->exec($I); 
         return $this->conection->lastInsertId();
     }
-    public function consult($sql)
+    public function consult($sql="SELECT * FROM `imagenes`")
     {
         $sentence = $this->conection->prepare($sql);
         $sentence->execute();

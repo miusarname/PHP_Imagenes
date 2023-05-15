@@ -6,7 +6,7 @@ include("Connection.php")
 ?>
 <?php
 $objconection = new conection;
-$result = $objconection->consult("SELECT * FROM `proyectos`");
+$result = $objconection->consult("SELECT * FROM `imagenes`");
 ?>
 
 <div class="p-5 mb-4 bg-light rounded-3">
@@ -27,9 +27,9 @@ $result = $objconection->consult("SELECT * FROM `proyectos`");
 
   <div class="col">
     <div class="card h-100">
-      <img src="Archivos/<?php echo $project['image']; ?>" class="card-img-top" alt="...">
+      <img src="Archivos/<?php echo $project['Link']; ?>" class="card-img-top" alt="...">
       <div class="card-body">
-        <h5 class="card-title"><?php echo $project['name']; ?></h5>
+        <h5 class="card-title"><?php echo $project['Name']; ?></h5>
         <p class="card-text"><?php echo $project['Description']; ?></p>
       </div>
     </div>

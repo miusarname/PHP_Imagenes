@@ -41,7 +41,7 @@ if($_POST){
 User: <input placeholder="Username" class="form-control" type="text" name="user" id=""> <br>
 Password: <input placeholder="Password" class="form-control" type="password" name="password" id=""> <br>
 <br>
-<button class="btn btn-success" type="submit">Login to briefcase</button>
+<button class="btn btn-success" type="submit">Login to API</button>
 
 </form>
                 </div>
