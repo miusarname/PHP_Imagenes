@@ -5,39 +5,38 @@ class conection
     public $server = 'sql10.freemysqlhosting.net';
     public $user = "sql10618119";
     public $password = "4NHAsCAvnP";
+    public $port = "3306";
+    public $db="sql10.freemysqlhosting.net";
 
     public $conection;
 
 
     public function __construct()
     {
-        try{
-            $username="sql10618119";
-            $password="4NHAsCAvnP";
-            $database="sql10618119";
 
-            $mysqli = new mysqli("sql10.freemysqlhosting.net", $username, $password, $database);
-
-            //echo $mysqli->query("SELECT * FROM `imagenes`") ."funciono" ;
-            foreach($mysqli->query("SELECT * FROM `imagenes`") as $clave => $valor) {
-                print "$clave => $valor\n";
-                foreach ($valor as &$valor1) {
-                    print($valor1);
-                }
-            }
-            echo "\n";
-
-        }catch (PDOException $e) {
-            echo 'error' . $e;
+        try {
+            $username = "sql10618119";
+            $password = "4NHAsCAvnP";
+            $database = "sql10618119";
+            $host = "sql10.freemysqlhosting.net";
+        
+            $dsn = "mysql:host=$host;dbname=$database;charset=utf8mb4";
+            $options = [
+                PDO::ATTR_ERRMODE => PDO::ERRMODE_EXCEPTION,
+                PDO::ATTR_EMULATE_PREPARES => false,
+            ];
+        
+            $this->conection = new PDO($dsn, $username, $password, $options);
+        
+            //$query = $pdo->query("SELECT * FROM `imagenes`");
+            //while ($row = $query->fetch(PDO::FETCH_ASSOC)) {
+            //    foreach ($row as $clave => $valor) {
+            //        echo "$clave => $valor\n";
+            //    }
+            //}
+        } catch (PDOException $e) {
+            echo "Connection failed: " . $e->getMessage();
         }
-
-
-        //try {
-        //    $this->conection= new PDO("mysql:host=" . $this->server . ";dbname=	sql10618119", $this->user, $this->password);
-        //    $this->conection->setAttribute(PDO::ATTR_ERRMODE, PDO::ERRMODE_EXCEPTION);
-        //} catch (PDOException $e) {
-        //    echo 'error' . $e;
-        //}
     }
     public function execut($I)//Insertar/actualizar/Eliminar
     {
