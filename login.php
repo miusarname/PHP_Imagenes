@@ -3,7 +3,7 @@ session_start();
 if($_POST){
     if(($_POST['user'] == 'Admin') && ($_POST['password'] == 'root')){
         $_SESSION['user']="Admin";
-        header("location:index.php");
+        header("location:briefcase.php");
     }else{
         echo "<script> alert('Incorrect username and/or passwordincorrect username and/or password'); </script>";
     }

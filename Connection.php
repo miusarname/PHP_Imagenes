@@ -28,12 +28,6 @@ class conection
         
             $this->conection = new PDO($dsn, $username, $password, $options);
         
-            //$query = $pdo->query("SELECT * FROM `imagenes`");
-            //while ($row = $query->fetch(PDO::FETCH_ASSOC)) {
-            //    foreach ($row as $clave => $valor) {
-            //        echo "$clave => $valor\n";
-            //    }
-            //}
         } catch (PDOException $e) {
             echo "Connection failed: " . $e->getMessage();
         }

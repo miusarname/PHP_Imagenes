@@ -18,7 +18,7 @@ if(isset($_SESSION['user'])!= 'Admin'){
 <body>
 <div class="container">
 <a href="index.php">Inicio</a>
-    <a href="briefcase.php">Portafolio</a>
+    <a href="briefcase.php">Subir archivos</a>
     <a href="close.php">Cerrar</a>
     <br>
 

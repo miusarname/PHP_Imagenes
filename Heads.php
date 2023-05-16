@@ -1,9 +1,4 @@
-<?php
-session_start();
-if(isset($_SESSION['user'])!= 'Admin'){
-    header("location:login.php");
-}
-?>
+
 
 
 <!DOCTYPE html>
@@ -18,6 +13,6 @@ if(isset($_SESSION['user'])!= 'Admin'){
 <body>
 <div class="container">
 <a href="index.php">Inicio</a>
-    <a href="muestreo.php">muestreo</a>
+    <a href="briefcase.php">muestreo</a>
     <a href="closeSession.php">Cerrar</a>
     <br>

@@ -1,12 +1,12 @@
 <?php
-include("Headboard.php")
+include("Heads.php")
 ?>
 <?php
 include("Connection.php")
 ?>
 <?php
 $objconection = new conection;
-$result = $objconection->consult("SELECT * FROM `proyectos`");
+$result = $objconection->consult("SELECT * FROM `imagenes`");
 ?>
 
 <div class="p-5 mb-4 bg-light rounded-3">

@@ -17,23 +17,23 @@ if ($_POST) {
 
     $objconection = new conection();
 
-    $sql = "INSERT INTO album.proyectos (`id`, `name`, `image`, `Description`) VALUES (NULL,' $nombre', '$img', '$desc');";
+    $sql = "INSERT INTO album.imagenes (`id`, `name`, `image`, `Description`) VALUES (NULL,' $nombre', '$img', '$desc');";
 
     $objconection->execut($sql);
     header("location:briefcase.php");
 }
 
 $objconection = new conection;
-$result = $objconection->consult("SELECT * FROM `proyectos`");
+$result = $objconection->consult("SELECT * FROM `imagenes`");
 
 //print_r($result);
 
 if ($_GET) {
     $id = $_GET['delete'];
     $objconection = new conection;
-    $img1 = $result = $objconection->consult("SELECT image FROM `proyectos` WHERE id=" . $id);
+    $img1 = $result = $objconection->consult("SELECT image FROM `imagenes` WHERE id=" . $id);
     unlink("Archivos/" . $img1[0]['image']);
-    $sql = "DELETE FROM `proyectos` WHERE `proyectos`.`id` = $id";
+    $sql = "DELETE FROM `imagenes` WHERE `imagenes`.`id` = $id";
     $objconection->execut($sql);
     header("location:briefcase.php");
 }
