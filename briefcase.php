@@ -11,29 +11,34 @@ if ($_POST) {
     $nombre = $_POST['nombre'];
     $desc = $_POST['description'];
     $date = new DateTime();
-    $img = $date->getTimestamp() . "_" . $_FILES['archivo']['name'];
+    $user = 1;
+    $img = $date->getTimestamp() . "_" ."holamund0"; //$_FILES['archivo']['name'];
     $temp_img = $_FILES['archivo']['tmp_name'];
     move_uploaded_file($temp_img, "Archivos/" . $img);
 
     $objconection = new conection();
 
-    $sql = "INSERT INTO album.imagenes (`id`, `name`, `image`, `Description`) VALUES (NULL,' $nombre', '$img', '$desc');";
+    $sql = "INSERT INTO sql10618119.imagenesPersonales (`id`, `name`, `description`, `image_link`,`usuario_id`) VALUES (NULL,' $nombre', '$desc', '$img','$user');";
 
     $objconection->execut($sql);
     header("location:briefcase.php");
 }
 
 $objconection = new conection;
-$result = $objconection->consult("SELECT * FROM `imagenes`");
+$result = $objconection->consult("SELECT * FROM `imagenesPersonales`");
 
 //print_r($result);
 
 if ($_GET) {
     $id = $_GET['delete'];
     $objconection = new conection;
-    $img1 = $result = $objconection->consult("SELECT image FROM `imagenes` WHERE id=" . $id);
+    try{
+        $img1 = $result = $objconection->consult("SELECT * FROM `imagenesPersonales` WHERE id=" . $id);
+    }catch(Exception $e){
+        echo" Ha habido un error ";
+    }
     unlink("Archivos/" . $img1[0]['image']);
-    $sql = "DELETE FROM `imagenes` WHERE `imagenes`.`id` = $id";
+    $sql = "DELETE FROM `imagenesPersonales` WHERE `imagenesPersonales`.`id` = $id";
     $objconection->execut($sql);
     header("location:briefcase.php");
 }
@@ -80,13 +85,13 @@ if ($_GET) {
                                 <tr>
                                     <td style="cursor: pointer;"><?php echo $project['id']; ?></td>
                                     <td style="cursor: pointer;"><?php echo $project['name']; ?></td>
-                                    <td style="cursor: pointer;"><?php echo $project['image']; ?></td>
-                                    <!-- <td style="cursor: pointer;">
+                                    <td style="cursor: pointer;"><?php echo $project['description']; ?></td>
+                                    <td style="cursor: pointer;">
                                     
-                                    <img width="100" src="Archivos/<?php echo $project['image']; ?>" alt="">
+                                    <img width="100" src="<?php echo $project['image_link']; ?>" alt="">
                                 
-                                </td> -->
-                                    <td style="cursor: pointer;"><?php echo $project['Description']; ?></td>
+                                </td>
+                                    <td style="cursor: pointer;"><?php echo $project['description']; ?></td>
                                     <td style="cursor: pointer;"><a href="?delete=<?php echo $project['id']; ?>" class="btn btn-danger" role="button">Eliminar</a></td>
                                 </tr>
                             <?php } ?>
