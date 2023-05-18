@@ -12,10 +12,10 @@ if ($_POST) {
     $desc = $_POST['description'];
     $date = new DateTime();
     $user = 1;
-    $img = $date->getTimestamp() . "_" ."holamund0"; //$_FILES['archivo']['name'];
+    $img = $date->getTimestamp() . "_" . $_FILES['archivo']['name'];
     $temp_img = $_FILES['archivo']['tmp_name'];
     move_uploaded_file($temp_img, "Archivos/" . $img);
-
+    
     $objconection = new conection();
 
     $sql = "INSERT INTO sql10618119.imagenesPersonales (`id`, `name`, `description`, `image_link`,`usuario_id`) VALUES (NULL,' $nombre', '$desc', '$img','$user');";
