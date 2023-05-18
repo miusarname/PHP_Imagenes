@@ -1,8 +1,8 @@
 <?php
-include("Heads.php")
+include("./layouts/Heads.php")
 ?>
 <?php
-include("Connection.php")
+include("./ConnectionModels/Connection.php")
 ?>
 <?php
 $objconection = new conection;
@@ -41,5 +41,5 @@ $result = $objconection->consult("SELECT * FROM `imagenes`");
 
 </div>
 <?php
-include("foot.php")
+include("./layouts/foot.php")
 ?>

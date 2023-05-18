@@ -12,7 +12,7 @@
 </head>
 <body>
 <div class="container">
-<a href="index.php">Inicio</a>
-    <a href="briefcase.php">muestreo</a>
-    <a href="closeSession.php">Cerrar</a>
+<a href="./index.php">Inicio</a>
+    <a href="./briefcase.php">muestreo</a>
+    <a href="./Sessions/closeSession.php">Cerrar</a>
     <br>

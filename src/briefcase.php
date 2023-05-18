@@ -1,8 +1,8 @@
 <?php
-include("Headboard.php")
+include("./layouts/Headboard.php")
 ?>
 <?php
-include("Connection.php")
+include("./ConnectionModels/Connection.php")
 ?>
 <?php
 if ($_POST) {
@@ -14,8 +14,11 @@ if ($_POST) {
     $user = 1;
     $img = $date->getTimestamp() . "_" . $_FILES['archivo']['name'];
     $temp_img = $_FILES['archivo']['tmp_name'];
+    try {
     move_uploaded_file($temp_img, "Archivos/" . $img);
-    
+    }catch (\Exception $e) {
+        echo "Error: ";
+    }
     $objconection = new conection();
 
     $sql = "INSERT INTO sql10618119.imagenesPersonales (`id`, `name`, `description`, `image_link`,`usuario_id`) VALUES (NULL,' $nombre', '$desc', '$img','$user');";

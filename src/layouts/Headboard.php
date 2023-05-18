@@ -1,7 +1,7 @@
 <?php
 session_start();
 if(isset($_SESSION['user'])!= 'Admin'){
-    header("location:login.php");
+    header("location:./login.php");
 }
 ?>
 
@@ -17,9 +17,9 @@ if(isset($_SESSION['user'])!= 'Admin'){
 </head>
 <body>
 <div class="container">
-<a href="index.php">Inicio</a>
-    <a href="briefcase.php">Subir archivos</a>
-    <a href="close.php">Cerrar</a>
+<a href="./index.php">Inicio</a>
+    <a href="./briefcase.php">Subir archivos</a>
+    <a href="./Sessions/closeSession.php">Cerrar</a>
     <br>
 
 
